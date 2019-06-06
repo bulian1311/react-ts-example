@@ -1,3 +1,7 @@
+import React from 'react';
+
+
+
 export interface iState {
   episodes: any[],
   favorites: any[]
@@ -5,8 +9,10 @@ export interface iState {
 
 export interface iAction {
   type: string,
-  payload: any
-}
+  payload: iEpisode[] | any
+};
+
+export type iDispatch = React.Dispatch<iAction>;
 
 export interface iEpisode {
   airdate: string,
@@ -20,4 +26,4 @@ export interface iEpisode {
   season: number
   summary: string,
   url: string,
-}
+};

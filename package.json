@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ubuntu-start": "CHOKIDAR_USEPOLLING=true react-scripts start"
+    "ts-start": "CHOKIDAR_USEPOLLING=true react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"

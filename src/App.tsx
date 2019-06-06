@@ -2,7 +2,11 @@ import React, { useContext, Fragment } from 'react';
 import { Store } from './Store';
 import { Link } from '@reach/router';
 
-const App = (props: any): JSX.Element => {
+interface iProps {
+  path: string
+}
+
+const App: React.FC<iProps> = (props: any): JSX.Element => {
   const { state } = useContext(Store);
 
   return (
@@ -13,8 +17,9 @@ const App = (props: any): JSX.Element => {
           <p>Pick you favorite episode</p>
         </div>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="favs">Favorites: {state.favorites.length}</Link>
+          <Link to="/">Home</Link>{' '}
+          <Link to="favs">Favorites: {state.favorites.length}</Link>{' '}
+          <Link to="/todo">Todo</Link>
         </div>
       </header>
       {props.children}

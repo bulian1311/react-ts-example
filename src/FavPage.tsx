@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Store } from './Store';
+import { toggleFavAction } from './Actions';
 
-const FavPage = () => {
+const EpisodesList = React.lazy<any>(() => import('./EpisodesList'));
+
+const FavPage: React.FC = (): JSX.Element => {
+  const { state, dispatch } = useContext(Store);
+
   return (
-    <div>
-      <h1>Fav page</h1>
-    </div>
+    <React.Suspense fallback="...loading">
+      <div className="episode-layout">
+        <EpisodesList
+          state={state}
+          dispatch={dispatch}
+          episodes={state.favorites}
+          toggleFavAction={toggleFavAction}
+          favorites={state.favorites}
+        />
+      </div>
+    </React.Suspense>
   )
 }
 

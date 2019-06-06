@@ -1,7 +1,16 @@
 import React from 'react';
-import { iEpisode } from './interfaces';
+import { iState, iEpisode, iDispatch } from './interfaces';
 
-const EpisodesList = (props: any): JSX.Element => {
+
+interface iProps {
+  state: iState
+  episodes: iEpisode
+  favorites: iEpisode[]
+  toggleFavAction: (state: iState, dispatch: iDispatch, episodes: iEpisode) => {}
+  dispatch: iDispatch
+}
+
+const EpisodesList: React.FC<iProps> = (props: any): JSX.Element => {
   const { episodes, favorites, toggleFavAction, state, dispatch } = props;
   return (
     episodes.map((episode: iEpisode) => (
